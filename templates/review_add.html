@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/review_add.css">
+</head>
+<body>
+<div class="submit-section">
+    <button id="button1">임시저장</button>
+    <button id="button2">등록하기</button>
+</div>
+
+<p id="title1">리뷰 작성하기</p>
+<div style="display:flex; flex-direction: column;">
+<div class = "tabs">
+<div class = "tab">기본정보</div> 
+<div class = "tab">상품정보</div> 
+<div class = "tab">공지사항</div>
+</div>
+
+<div class="form-section">
+    <label for="product-name">상품 이름</label>
+    <p>공동 구매를 진행한 내역 중 리뷰를 작성할 상품을 선택해주세요.</p>
+    <select id="product-name" maxlength="100"></select>
+
+    <label for="review-content">리뷰 작성</label>
+    <p>공동 구매에 대한 리뷰를 작성해주세요.<br>작성해주신 리뷰는 리뷰 조회 페이지에 노출됩니다.</p>
+    <textarea id="review-content" placeholder="상품에 대한 리뷰를 작성해주세요." maxlength="100"></textarea>
+    <p>0/100</p>
+
+    <label for="photo-upload">사진 첨부</label>
+    <button id="photo-upload">사진 불러오기</button>
+
+    <label for="review-keyword">리뷰 키워드</label>
+    <p>리뷰 키워드를 선택해주세요.</p>
+    <select id="review-keyword" maxlength="100"></select>
+</div>
+</div>
+
+<image id="backicon" src="../static/img/Group 45.png">
+</body>
+</html>
