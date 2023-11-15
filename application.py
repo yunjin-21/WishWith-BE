@@ -1,7 +1,10 @@
-from flask import Flask, render_template , request
-from database import DBhandler
+from flask import Flask, render_template , request, url_for, request, redirect , flash, session
+from database import DBhandler 
+import hashlib
 import sys
+
 app = Flask(__name__)
+app.config["SECRET_KEY"]="helloosp"
 DB = DBhandler()
 
 
@@ -61,6 +64,31 @@ def reviewDetail():
 @app.route("/reviews-list")
 def reviewList():
     return render_template('reviews_list.html')
+
+@app.route("/signup1")
+def signup1():
+    return render_template('signup1.html')
+
+@app.route("/signup2", methods=["GET", "POST"])
+def signup2():
+    if request.method == "POST":
+        return redirect(url_for('signup1'))
+    return render_template('signup2.html')
+
+
+
+@app.route("/signup1_post", methods=['POST'])
+def register_user():
+    data = request.form
+    pw = request.form['pw']
+    pw_hash = hashlib.sha256(pw.encode('utf-8')).hexdigest()
+    
+    if DB.insert_user(data, pw_hash):
+        return render_template("signup2.html")
+    else:
+        flash("user id already exist!")
+        return render_template("signup1.html")
+
 
 
 

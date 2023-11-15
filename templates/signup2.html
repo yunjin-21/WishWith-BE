@@ -2,8 +2,54 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="../static/css/signup2.css">
+         <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            .navbar {
+                background-color: #f8f9fa;
+                padding: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .navbar__logo a {
+                text-decoration: none;
+                font-size: 1.5em;
+                color: #343a40;
+            }
+
+            .navbar__menu {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+            }
+
+            .navbar__menu li {
+                margin-right: 20px;
+            }
+
+            .navbar__menu a {
+                text-decoration: none;
+                color: #343a40;
+                font-weight: bold;
+            }
+        </style>
     </head>
     <body>
+         <nav class="navbar">
+            <div class="navbar__logo">
+                <a href="/list">Orang2E</a>
+            </div>
+            <ul class="navbar__menu">
+                <li><a href="/login">Login</a></li>
+                <li><a href="/list">List</a></li>
+                <li><a href="/review">Review</a></li>
+            </ul>
+        </nav>
         <a href="index.html" target="_parent" id="ximg"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M32.8214 10.7793L10.9404 32.9947" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M10.9404 10.7793L32.8214 32.9947" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -14,7 +60,7 @@
             <div class="text2">회원가입이 필요해요</div>
         </div>
         <a href="#" target="_self" id="login">로그인</a>
-        <a href="signup.html" target="_self" id="signup">회원가입</a>
+        <a href="#" target="_self" id="signup">회원가입</a>
         <form method="post" action="#" id="signup2-form">
             <label for="nickname" id="name">닉네임</label>
             <input type="text" name="nickname" placeholder="enter your nickname"><hr/>
@@ -41,5 +87,12 @@
             </div>
             <input type="submit" value="회원가입">
         </form>
+   <script>
+           document.getElementById("signup").addEventListener("click", function() {
+                window.location.href = "/signup1";
+            });
+
+          
+        </script>
     </body>
 </html>
