@@ -1,5 +1,5 @@
-from flask import Flask, render_template , request, url_for, request, redirect , flash, session
-from database import DBhandler 
+from flask import Flask, render_template , url_for, request, redirect , flash, session
+from database import DBhandler
 import hashlib
 import sys
 
@@ -10,7 +10,8 @@ DB = DBhandler()
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    #return render_template('index.html')
+    return redirect(url_for('view_list'))
 
 @app.route('/mypage')
 def mypage():
@@ -30,19 +31,46 @@ def productAdd():
 
 @app.route("/add-product-post", methods=["POST"])
 def registerproduct():
+    print(request.form)  # 확인용 출력
+    print(request.files)  # 확인용 출력
+    image_file = request.files["img_path"]
+    image_file.save("static/img/{}".format(image_file.filename))
     data = {
         "product_description": request.form.get("product-description"),
         "product_place": request.form.get("product-place"),
         "product_number": request.form.get("product-number"),
         "product_category": request.form.get("product-category"),
         "start_date": request.form.get("start-date"),
-        "end_date": request.form.get("end-date")
+        "end_date": request.form.get("end-date"),
+        "img_path": "static/img/" + image_file.filename
     }
-    DB.insert_item(data['product_category'], data)
-    return render_template("products_list.html", data=data)
+    DB.insert_item(data['product_category'], data, image_file.filename)
+    return render_template("products_list.html", data={ "img_path": "static/img/" + image_file.filename, **data })
+
+@app.route("/list")
+def view_list():
+    page = request.args.get("page", 0, type=int)
+    per_page = 6  # item count to display per page
+    per_row = 3  # item count to display per row   
+    start_idx=per_page*page
+    end_idx=per_page*(page+1)
+   
+    data = DB.get_items()  # read the table
+    
+    item_counts = len(data)
+    data = dict(list(data.items())[start_idx:end_idx])
+    tot_count = len(data)
+    
+    row_data = [list(data.items())[i * per_row:(i + 1) * per_row] for i in range(per_page // per_row)]
+
+    return render_template("list.html", row_data=row_data, limit=per_page,page=page, page_count=int((item_counts/per_page)+1),total=item_counts)
 
 
 
+@app.route("/view_detail/<name>/")
+def view_item_detail(name):
+        data = DB.get_item_byname(str(name))
+        return render_template("detail.html", name=name, data=data)
 
 
 @app.route("/product-detail")
@@ -52,6 +80,10 @@ def productDetail():
 @app.route("/products-list")
 def productsList():
     return render_template('products_list.html')
+
+
+
+
 
 @app.route("/review-add") 
 def reviewAdd():

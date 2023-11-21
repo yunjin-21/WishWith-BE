@@ -8,7 +8,7 @@ class DBhandler:
             firebase = pyrebase.initialize_app(config)
             self.db = firebase.database()
 
-    def insert_item(self, name, data):
+    def insert_item(self, name, data, img_path):
         item_info = {
             "product_description": data['product_description'],
             "product_place": data['product_place'],
@@ -16,11 +16,32 @@ class DBhandler:
             "product_category": data['product_category'],
             "start_date": data['start_date'],
             "end_date": data['end_date'],
+            "img_path": img_path
         }
         self.db.child("item").child(name).set(item_info)
-        print(data)
+        print(data, img_path)
         return True
+    
+    def get_items(self ):
+        items = self.db.child("item").get().val()
+        return items
+    def get_item_byname(self, name):
+        items = self.db.child("item").get()
+        target_value = ""
 
+        print("###########", name)
+
+        for res in items.each():
+            key_value = res.key()
+            if key_value == name:
+                target_value = res.val()
+
+        return target_value
+
+    
+
+
+    
     def insert_user(self, data, pw):
         user_info = {
             "id": data['id'],
@@ -45,3 +66,4 @@ class DBhandler:
                 if value['id'] == id_string:
                     return False
             return True
+        

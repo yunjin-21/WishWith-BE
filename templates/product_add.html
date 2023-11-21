@@ -9,7 +9,7 @@
   <body>
 
     <!-- 이거 추가 -->
-    <form  id="productForm" action="/add-product-post" method="post">     
+   <form id="productForm" action="/add-product-post" method="post" enctype="multipart/form-data">  
     <div class="container">
       <div class="navigation">
         <span class="back-arrow">&larr;</span>
@@ -29,6 +29,27 @@
       </div>
       <div class="content">
         <div class="form-section">
+            
+              <div style="display: flex; flex-direction: row; align-items: center;">
+              <div style="display: flex; width: 30%; flex-direction: column;">
+                <div class="form-title">상품 이미지</div>
+                <div class="form-description">
+                  상품의 이미지를 업로드해주세요.
+                </div>
+              </div>
+
+              <input type="file" id="img_path" name="img_path" accept="image/*">
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
           <div style="display: flex; flex-direction: row;  align-items: center;">
             <div style="display: flex; width: 30%; flex-direction: column;">
               <div class="form-title">상품 URL</div>
