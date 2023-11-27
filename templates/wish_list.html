@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        width: 100vw;
+        margin: 0;
+        background: white;
+      }
+
+      .text-box1,
+      .text-box2 {
+        top: 634px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background: white;
+        border-radius: 20px;
+        border: 1px #5bab93 solid;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        display: inline-flex;
+        position: absolute;
+        white-space: nowrap;
+      }
+
+      .text-box1 {
+        margin-left: 150px;
+      }
+
+      .text-box2 {
+        margin-left: 250px;
+      }
+
+      .text1-1,
+      .text2-1 {
+        color: #5bab93;
+        font-size: 16px;
+        font-family: Pretendard Variable;
+        font-weight: 600;
+        word-wrap: break-word;
+      }
+
+      .text4-1 {
+        color: black;
+        font-size: 16px;
+        font-family: Pretendard Variable;
+        font-weight: 600;
+        word-wrap: break-word;
+      }
+
+      .footer {
+        margin: 0px;
+        width: 100%;
+        top: 2875px;
+        height: 340px;
+        background: white;
+        position: absolute;
+      }
+
+      .card-line1,
+      .card-line2,
+      .card-line3,
+      .card-line4 {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+      }
+
+      .card-line1 {
+        top: 706px;
+      }
+
+      .card-line2 {
+        top: 1180px;
+      }
+
+      .card-line3 {
+        top: 1660px;
+      }
+
+      .card-line4 {
+        top: 160px;
+      }
+
+      .card-container1,
+      .card-container2,
+      .card-container3,
+      .card-container4 {
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        margin-left: 150px;
+        position: realtive;
+      }
+
+      .container {
+        display: flex;
+        position: relative;
+        width: 270px;
+        height: 432.02px;
+      }
+
+      .inner-box1 {
+        width: 268px;
+        height: 140px;
+        left: 0.16px;
+        top: 268px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        position: absolute;
+        background: white;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border: 1px #d9d9d9 solid;
+      }
+
+      .inner-box2 {
+        width: 268.02px;
+        height: 268.02px;
+        left: 0px;
+        top: 0px;
+        position: absolute;
+        background: #d9d9d9;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border: 1px #d9d9d9 solid;
+      }
+
+      .inner-textbox {
+        text-align: left;
+        padding-top: 8px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+      }
+
+      .category {
+        padding-bottom: 5px;
+      }
+
+      .category-label {
+        color: #46a1bb;
+        font-size: 14px;
+        font-family: Pretendard Variable;
+        font-weight: 600;
+        word-wrap: break-word;
+        text-align: left;
+      }
+
+      .store {
+        color: #00664f;
+        font-size: 14px;
+        font-family: Pretendard Variable;
+        font-weight: 600;
+        word-wrap: break-word;
+        text-align: left;
+      }
+
+      .product-name {
+        color: black;
+        font-size: 16px;
+        font-family: Pretendard Variable;
+        font-weight: 600;
+        word-wrap: break-word;
+        text-align: left;
+        padding-bottom: 5px;
+      }
+
+      .price {
+        color: #b9b9b9;
+        font-size: 14px;
+        font-family: Pretendard Variable;
+        font-weight: 400;
+        word-wrap: break-word;
+        text-align: left;
+      }
+
+      .progress {
+        text-align: left;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .progress-text {
+        padding-bottom: 4px;
+      }
+
+      .dday {
+        width: 44px;
+        height: 18px;
+        position: absolute;
+        text-align: center;
+        color: #e27a6c;
+        font-size: 14px;
+        font-family: Pretendard Variable;
+        font-weight: 600;
+        word-wrap: break-word;
+      }
+
+      .discount {
+        width: 33.96px;
+        height: 18.36px;
+        position: absolute;
+        text-align: right;
+        right: 20px;
+        color: #00664f;
+        font-size: 14px;
+        font-family: Pretendard Variable;
+        font-weight: 600;
+        word-wrap: break-word;
+      }
+
+      .progress-bar-bg {
+        width: 228px;
+        height: 12px;
+        position: absolute;
+        background: #d9d9d9;
+        border-radius: 5.97px;
+        overflow: hidden;
+        /* 클리핑 추가 */
+      }
+
+      .progress-bar {
+        height: 100%;
+        /* 높이 100%로 설정 */
+        position: relative;
+        background: #00664f;
+        border-radius: 5.97px;
+        transition: width 0.5s ease;
+        /* 움직임 효과 추가 */
+      }
+
+      .heart {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin: 10px;
+      }
+
+      .review-box {
+        margin: 0px;
+        width: 100%;
+        top: 2232px;
+        height: 646px;
+        background: rgb(255, 252, 240, 1);
+        position: absolute;
+      }
+
+      .review-page-go {
+        top: 110px;
+        left: 50%;
+        transform: translateX(-55%);
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        white-space: nowrap;
+        font-family: Pretendard Variable;
+        font-weight: 500;
+      }
+
+      .text-box4 {
+        left: 50%;
+        top: 50px;
+        transform: translateX(-55%);
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background: white;
+        border-radius: 20px;
+        border: 1px #e27a6c solid;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        display: inline-flex;
+        position: absolute;
+        white-space: nowrap;
+      }
+
+      .text4-1 {
+        color: black;
+        font-size: 16px;
+        font-family: Pretendard Variable;
+        font-weight: 600;
+        word-wrap: break-word;
+      }
+
+      .UIcard {
+        margin-top: 60px;
+        position: relative;
+        width: 270px;
+        height: 388.98px;
+        padding: 0;
+        margin: 0;
+      }
+
+      .card.bottom {
+        width: 268px;
+        height: 145.98px;
+        left: 0.16px;
+        top: 268px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        position: absolute;
+        background: white;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border: 1px #d9d9d9 solid;
+      }
+
+      #name {
+        color: #00664f;
+        font-family: Pretendard Variable;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400px;
+        line-height: 18px;
+        flex-shrink: 0;
+      }
+
+      .card.top {
+        width: 268.02px;
+        height: 268.02px;
+        left: 0px;
+        top: 0px;
+        position: absolute;
+        background: #d9d9d9;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border: 1px #d9d9d9 solid;
+      }
+
+      .card.textbox {
+        text-align: left;
+        padding-top: 8px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+      }
+
+      .review.contents {
+        color: #000;
+        font-family: Pretendard Variable;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px;
+        margin-top: 9px;
+      }
+
+      .line {
+        width: 268px;
+        height: 1px;
+        background-color: #d9d9d9;
+        padding: 0;
+        margin: 0;
+      }
+
+      .product.name {
+        color: #b9b9b9;
+        text-align: center;
+        font-family: Pretendard Variable;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin-top: 13px;
+      }
+
+      .pagebox {
+        top: 2130px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-55%);
+      }
+
+      .page {
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 35px;
+        display: inline-flex;
+      }
+
+      .page-now {
+        padding: 10px;
+        background: #5bab93;
+        border-radius: 10px;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .number-now {
+        text-align: center;
+        color: #fffcf0;
+        font-size: 14.33px;
+        font-family: Pretendard Variable;
+        font-weight: 700;
+        word-wrap: break-word;
+      }
+
+      .page-text {
+        text-align: center;
+        color: #b9b9b9;
+        font-size: 14.33px;
+        font-family: Pretendard Variable;
+        font-weight: 700;
+        word-wrap: break-word;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="header"></div>
+    <!--헤더 삽입-->
+
+    <div class="text-box1">
+      <div class="text1-1">전체</div>
+    </div>
+    <div class="text-box2">
+      <svg
+        width="10"
+        height="15"
+        viewBox="0 0 10 15"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4.65426 0.813477L1 4.77584"
+          stroke="#5BAB93"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M4.65424 0.813477L8.30849 4.77584"
+          stroke="#5BAB93"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M4.65426 14.1865L1 10.2241"
+          stroke="#5BAB93"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M4.65424 14.1865L8.30849 10.2241"
+          stroke="#5BAB93"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <div class="text2-1">최신순</div>
+    </div>
+
+    <div class="card-line1">
+      <div class="card-container1">
+        <div class="container" id="cont1-1">
+          <div class="inner-box1">
+            <div class="inner-textbox">
+              <div class="category">
+                <span class="category-label">생필품 | 이화 파빌리온 앞 | </span>
+                <span class="store">쿠팡</span>
+              </div>
+              <div class="product-name">해피데이 포켓형 대용량 핫팩 150g</div>
+              <div class="price">25개, 25000원</div>
+            </div>
+            <div class="progress">
+              <div class="progress-text">
+                <div class="dday">D-DAY</div>
+                <div class="discount">90%</div>
+                <br />
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="inner-box2">
+            <svg
+              class="heart"
+              width="28"
+              height="24"
+              viewBox="0 0 28 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M26.3888 7.06297C26.3888 8.66768 25.7802 10.2862 24.5494 11.5174L22.5026 13.5648L13.693 22.3768C13.6516 22.4183 13.6377 22.4322 13.5962 22.4598C13.5547 22.4322 13.5409 22.4183 13.4994 22.3768L2.64307 11.5174C1.41222 10.2862 0.803711 8.68151 0.803711 7.06297C0.803711 5.44444 1.41222 3.82591 2.64307 2.59472C5.10477 0.146162 9.08773 0.146162 11.5494 2.59472L13.5824 4.64209L15.6292 2.59472C18.0909 0.146162 22.06 0.146162 24.5217 2.59472C25.7802 3.82591 26.3888 5.43061 26.3888 7.06297Z"
+                fill="#E27A6C"
+                stroke="#E27A6C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="container" id="cont1-2">
+          <div class="inner-box1">
+            <div class="inner-textbox">
+              <div class="category">
+                <span class="category-label">생필품 | 이화 파빌리온 앞 | </span>
+                <span class="store">쿠팡</span>
+              </div>
+              <div class="product-name">해피데이 포켓형 대용량 핫팩 150g</div>
+              <div class="price">25개, 25000원</div>
+            </div>
+            <div class="progress">
+              <div class="progress-text">
+                <div class="dday">D-DAY</div>
+                <div class="discount">90%</div>
+                <br />
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="inner-box2">
+            <svg
+              class="heart"
+              width="28"
+              height="24"
+              viewBox="0 0 28 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M26.3888 7.06297C26.3888 8.66768 25.7802 10.2862 24.5494 11.5174L22.5026 13.5648L13.693 22.3768C13.6516 22.4183 13.6377 22.4322 13.5962 22.4598C13.5547 22.4322 13.5409 22.4183 13.4994 22.3768L2.64307 11.5174C1.41222 10.2862 0.803711 8.68151 0.803711 7.06297C0.803711 5.44444 1.41222 3.82591 2.64307 2.59472C5.10477 0.146162 9.08773 0.146162 11.5494 2.59472L13.5824 4.64209L15.6292 2.59472C18.0909 0.146162 22.06 0.146162 24.5217 2.59472C25.7802 3.82591 26.3888 5.43061 26.3888 7.06297Z"
+                fill="#E27A6C"
+                stroke="#E27A6C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="container" id="cont1-3">
+          <div class="inner-box1">
+            <div class="inner-textbox">
+              <div class="category">
+                <span class="category-label">생필품 | 이화 파빌리온 앞 | </span>
+                <span class="store">쿠팡</span>
+              </div>
+              <div class="product-name">해피데이 포켓형 대용량 핫팩 150g</div>
+              <div class="price">25개, 25000원</div>
+            </div>
+            <div class="progress">
+              <div class="progress-text">
+                <div class="dday">D-DAY</div>
+                <div class="discount">90%</div>
+                <br />
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="inner-box2">
+            <svg
+              class="heart"
+              width="28"
+              height="24"
+              viewBox="0 0 28 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M26.3888 7.06297C26.3888 8.66768 25.7802 10.2862 24.5494 11.5174L22.5026 13.5648L13.693 22.3768C13.6516 22.4183 13.6377 22.4322 13.5962 22.4598C13.5547 22.4322 13.5409 22.4183 13.4994 22.3768L2.64307 11.5174C1.41222 10.2862 0.803711 8.68151 0.803711 7.06297C0.803711 5.44444 1.41222 3.82591 2.64307 2.59472C5.10477 0.146162 9.08773 0.146162 11.5494 2.59472L13.5824 4.64209L15.6292 2.59472C18.0909 0.146162 22.06 0.146162 24.5217 2.59472C25.7802 3.82591 26.3888 5.43061 26.3888 7.06297Z"
+                fill="#E27A6C"
+                stroke="#E27A6C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="container" id="cont1-4">
+          <div class="inner-box1">
+            <div class="inner-textbox">
+              <div class="category">
+                <span class="category-label">생필품 | 이화 파빌리온 앞 | </span>
+                <span class="store">쿠팡</span>
+              </div>
+              <div class="product-name">해피데이 포켓형 대용량 핫팩 150g</div>
+              <div class="price">25개, 25000원</div>
+            </div>
+            <div class="progress">
+              <div class="progress-text">
+                <div class="dday">D-DAY</div>
+                <div class="discount">90%</div>
+                <br />
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="inner-box2">
+            <svg
+              class="heart"
+              width="28"
+              height="24"
+              viewBox="0 0 28 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M26.3888 7.06297C26.3888 8.66768 25.7802 10.2862 24.5494 11.5174L22.5026 13.5648L13.693 22.3768C13.6516 22.4183 13.6377 22.4322 13.5962 22.4598C13.5547 22.4322 13.5409 22.4183 13.4994 22.3768L2.64307 11.5174C1.41222 10.2862 0.803711 8.68151 0.803711 7.06297C0.803711 5.44444 1.41222 3.82591 2.64307 2.59472C5.10477 0.146162 9.08773 0.146162 11.5494 2.59472L13.5824 4.64209L15.6292 2.59472C18.0909 0.146162 22.06 0.146162 24.5217 2.59472C25.7802 3.82591 26.3888 5.43061 26.3888 7.06297Z"
+                fill="#E27A6C"
+                stroke="#E27A6C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="container" id="cont1-5">
+          <div class="inner-box1">
+            <div class="inner-textbox">
+              <div class="category">
+                <span class="category-label">생필품 | 이화 파빌리온 앞 | </span>
+                <span class="store">쿠팡</span>
+              </div>
+              <div class="product-name">해피데이 포켓형 대용량 핫팩 150g</div>
+              <div class="price">25개, 25000원</div>
+            </div>
+            <div class="progress">
+              <div class="progress-text">
+                <div class="dday">D-DAY</div>
+                <div class="discount">90%</div>
+                <br />
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="inner-box2">
+            <svg
+              class="heart"
+              width="28"
+              height="24"
+              viewBox="0 0 28 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M26.3888 7.06297C26.3888 8.66768 25.7802 10.2862 24.5494 11.5174L22.5026 13.5648L13.693 22.3768C13.6516 22.4183 13.6377 22.4322 13.5962 22.4598C13.5547 22.4322 13.5409 22.4183 13.4994 22.3768L2.64307 11.5174C1.41222 10.2862 0.803711 8.68151 0.803711 7.06297C0.803711 5.44444 1.41222 3.82591 2.64307 2.59472C5.10477 0.146162 9.08773 0.146162 11.5494 2.59472L13.5824 4.64209L15.6292 2.59472C18.0909 0.146162 22.06 0.146162 24.5217 2.59472C25.7802 3.82591 26.3888 5.43061 26.3888 7.06297Z"
+                fill="#E27A6C"
+                stroke="#E27A6C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-line2">
+      <div class="card-container2">
+        <div class="container" id="cont2-1">
+          <div class="inner-box1">
+            <div class="inner-textbox">
+              <div class="category">
+                <span class="category-label">생필품 | 이화 파빌리온 앞 | </span>
+                <span class="store">쿠팡</span>
+              </div>
+              <div class="product-name">해피데이 포켓형 대용량 핫팩 150g</div>
+              <div class="price">25개, 25000원</div>
+            </div>
+            <div class="progress">
+              <div class="progress-text">
+                <div class="dday">D-DAY</div>
+                <div class="discount">90%</div>
+                <br />
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="inner-box2">
+            <svg
+              class="heart"
+              width="28"
+              height="24"
+              viewBox="0 0 28 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M26.3888 7.06297C26.3888 8.66768 25.7802 10.2862 24.5494 11.5174L22.5026 13.5648L13.693 22.3768C13.6516 22.4183 13.6377 22.4322 13.5962 22.4598C13.5547 22.4322 13.5409 22.4183 13.4994 22.3768L2.64307 11.5174C1.41222 10.2862 0.803711 8.68151 0.803711 7.06297C0.803711 5.44444 1.41222 3.82591 2.64307 2.59472C5.10477 0.146162 9.08773 0.146162 11.5494 2.59472L13.5824 4.64209L15.6292 2.59472C18.0909 0.146162 22.06 0.146162 24.5217 2.59472C25.7802 3.82591 26.3888 5.43061 26.3888 7.06297Z"
+                fill="#E27A6C"
+                stroke="#E27A6C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="container" id="cont2-2">
+          <div class="inner-box1">
+            <div class="inner-textbox">
+              <div class="category">
+                <span class="category-label">생필품 | 이화 파빌리온 앞 | </span>
+                <span class="store">쿠팡</span>
+              </div>
+              <div class="product-name">해피데이 포켓형 대용량 핫팩 150g</div>
+              <div class="price">25개, 25000원</div>
+            </div>
+            <div class="progress">
+              <div class="progress-text">
+                <div class="dday">D-DAY</div>
+                <div class="discount">90%</div>
+                <br />
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="inner-box2">
+            <svg
+              class="heart"
+              width="28"
+              height="24"
+              viewBox="0 0 28 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M26.3888 7.06297C26.3888 8.66768 25.7802 10.2862 24.5494 11.5174L22.5026 13.5648L13.693 22.3768C13.6516 22.4183 13.6377 22.4322 13.5962 22.4598C13.5547 22.4322 13.5409 22.4183 13.4994 22.3768L2.64307 11.5174C1.41222 10.2862 0.803711 8.68151 0.803711 7.06297C0.803711 5.44444 1.41222 3.82591 2.64307 2.59472C5.10477 0.146162 9.08773 0.146162 11.5494 2.59472L13.5824 4.64209L15.6292 2.59472C18.0909 0.146162 22.06 0.146162 24.5217 2.59472C25.7802 3.82591 26.3888 5.43061 26.3888 7.06297Z"
+                fill="#E27A6C"
+                stroke="#E27A6C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="container" id="cont2-3">
+          <div class="inner-box1">
+            <div class="inner-textbox">
+              <div class="category">
+                <span class="category-label">생필품 | 이화 파빌리온 앞 | </span>
+                <span class="store">쿠팡</span>
+              </div>
+              <div class="product-name">해피데이 포켓형 대용량 핫팩 150g</div>
+              <div class="price">25개, 25000원</div>
+            </div>
+            <div class="progress">
+              <div class="progress-text">
+                <div class="dday">D-DAY</div>
+                <div class="discount">90%</div>
+                <br />
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="inner-box2">
+            <svg
+              class="heart"
+              width="28"
+              height="24"
+              viewBox="0 0 28 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M26.3888 7.06297C26.3888 8.66768 25.7802 10.2862 24.5494 11.5174L22.5026 13.5648L13.693 22.3768C13.6516 22.4183 13.6377 22.4322 13.5962 22.4598C13.5547 22.4322 13.5409 22.4183 13.4994 22.3768L2.64307 11.5174C1.41222 10.2862 0.803711 8.68151 0.803711 7.06297C0.803711 5.44444 1.41222 3.82591 2.64307 2.59472C5.10477 0.146162 9.08773 0.146162 11.5494 2.59472L13.5824 4.64209L15.6292 2.59472C18.0909 0.146162 22.06 0.146162 24.5217 2.59472C25.7802 3.82591 26.3888 5.43061 26.3888 7.06297Z"
+                fill="#E27A6C"
+                stroke="#E27A6C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="container" id="cont2-4">
+          <div class="inner-box1">
+            <div class="inner-textbox">
+              <div class="category">
+                <span class="category-label">생필품 | 이화 파빌리온 앞 | </span>
+                <span class="store">쿠팡</span>
+              </div>
+              <div class="product-name">해피데이 포켓형 대용량 핫팩 150g</div>
+              <div class="price">25개, 25000원</div>
+            </div>
+            <div class="progress">
+              <div class="progress-text">
+                <div class="dday">D-DAY</div>
+                <div class="discount">90%</div>
+                <br />
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="inner-box2">
+            <svg
+              class="heart"
+              width="28"
+              height="24"
+              viewBox="0 0 28 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M26.3888 7.06297C26.3888 8.66768 25.7802 10.2862 24.5494 11.5174L22.5026 13.5648L13.693 22.3768C13.6516 22.4183 13.6377 22.4322 13.5962 22.4598C13.5547 22.4322 13.5409 22.4183 13.4994 22.3768L2.64307 11.5174C1.41222 10.2862 0.803711 8.68151 0.803711 7.06297C0.803711 5.44444 1.41222 3.82591 2.64307 2.59472C5.10477 0.146162 9.08773 0.146162 11.5494 2.59472L13.5824 4.64209L15.6292 2.59472C18.0909 0.146162 22.06 0.146162 24.5217 2.59472C25.7802 3.82591 26.3888 5.43061 26.3888 7.06297Z"
+                fill="#E27A6C"
+                stroke="#E27A6C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="container" id="cont2-5">
+          <div class="inner-box1">
+            <div class="inner-textbox">
+              <div class="category">
+                <span class="category-label">생필품 | 이화 파빌리온 앞 | </span>
+                <span class="store">쿠팡</span>
+              </div>
+              <div class="product-name">해피데이 포켓형 대용량 핫팩 150g</div>
+              <div class="price">25개, 25000원</div>
+            </div>
+            <div class="progress">
+              <div class="progress-text">
+                <div class="dday">D-DAY</div>
+                <div class="discount">90%</div>
+                <br />
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="inner-box2">
+            <svg
+              class="heart"
+              width="28"
+              height="24"
+              viewBox="0 0 28 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M26.3888 7.06297C26.3888 8.66768 25.7802 10.2862 24.5494 11.5174L22.5026 13.5648L13.693 22.3768C13.6516 22.4183 13.6377 22.4322 13.5962 22.4598C13.5547 22.4322 13.5409 22.4183 13.4994 22.3768L2.64307 11.5174C1.41222 10.2862 0.803711 8.68151 0.803711 7.06297C0.803711 5.44444 1.41222 3.82591 2.64307 2.59472C5.10477 0.146162 9.08773 0.146162 11.5494 2.59472L13.5824 4.64209L15.6292 2.59472C18.0909 0.146162 22.06 0.146162 24.5217 2.59472C25.7802 3.82591 26.3888 5.43061 26.3888 7.06297Z"
+                fill="#E27A6C"
+                stroke="#E27A6C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-line3">
+      <div class="card-container3">
+        <div class="container" id="cont3-1">
+          <div class="inner-box1">
+            <div class="inner-textbox">
+              <div class="category">
+                <span class="category-label">생필품 | 이화 파빌리온 앞 | </span>
+                <span class="store">쿠팡</span>
+              </div>
+              <div class="product-name">해피데이 포켓형 대용량 핫팩 150g</div>
+              <div class="price">25개, 25000원</div>
+            </div>
+            <div class="progress">
+              <div class="progress-text">
+                <div class="dday">D-DAY</div>
+                <div class="discount">90%</div>
+                <br />
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="inner-box2">
+            <svg
+              class="heart"
+              width="28"
+              height="24"
+              viewBox="0 0 28 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M26.3888 7.06297C26.3888 8.66768 25.7802 10.2862 24.5494 11.5174L22.5026 13.5648L13.693 22.3768C13.6516 22.4183 13.6377 22.4322 13.5962 22.4598C13.5547 22.4322 13.5409 22.4183 13.4994 22.3768L2.64307 11.5174C1.41222 10.2862 0.803711 8.68151 0.803711 7.06297C0.803711 5.44444 1.41222 3.82591 2.64307 2.59472C5.10477 0.146162 9.08773 0.146162 11.5494 2.59472L13.5824 4.64209L15.6292 2.59472C18.0909 0.146162 22.06 0.146162 24.5217 2.59472C25.7802 3.82591 26.3888 5.43061 26.3888 7.06297Z"
+                fill="#E27A6C"
+                stroke="#E27A6C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="container" id="cont3-2">
+          <div class="inner-box1">
+            <div class="inner-textbox">
+              <div class="category">
+                <span class="category-label">생필품 | 이화 파빌리온 앞 | </span>
+                <span class="store">쿠팡</span>
+              </div>
+              <div class="product-name">해피데이 포켓형 대용량 핫팩 150g</div>
+              <div class="price">25개, 25000원</div>
+            </div>
+            <div class="progress">
+              <div class="progress-text">
+                <div class="dday">D-DAY</div>
+                <div class="discount">90%</div>
+                <br />
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="inner-box2">
+            <svg
+              class="heart"
+              width="28"
+              height="24"
+              viewBox="0 0 28 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M26.3888 7.06297C26.3888 8.66768 25.7802 10.2862 24.5494 11.5174L22.5026 13.5648L13.693 22.3768C13.6516 22.4183 13.6377 22.4322 13.5962 22.4598C13.5547 22.4322 13.5409 22.4183 13.4994 22.3768L2.64307 11.5174C1.41222 10.2862 0.803711 8.68151 0.803711 7.06297C0.803711 5.44444 1.41222 3.82591 2.64307 2.59472C5.10477 0.146162 9.08773 0.146162 11.5494 2.59472L13.5824 4.64209L15.6292 2.59472C18.0909 0.146162 22.06 0.146162 24.5217 2.59472C25.7802 3.82591 26.3888 5.43061 26.3888 7.06297Z"
+                fill="#E27A6C"
+                stroke="#E27A6C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="container" id="cont3-3">
+          <div class="inner-box1">
+            <div class="inner-textbox">
+              <div class="category">
+                <span class="category-label">생필품 | 이화 파빌리온 앞 | </span>
+                <span class="store">쿠팡</span>
+              </div>
+              <div class="product-name">해피데이 포켓형 대용량 핫팩 150g</div>
+              <div class="price">25개, 25000원</div>
+            </div>
+            <div class="progress">
+              <div class="progress-text">
+                <div class="dday">D-DAY</div>
+                <div class="discount">90%</div>
+                <br />
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="inner-box2">
+            <svg
+              class="heart"
+              width="28"
+              height="24"
+              viewBox="0 0 28 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M26.3888 7.06297C26.3888 8.66768 25.7802 10.2862 24.5494 11.5174L22.5026 13.5648L13.693 22.3768C13.6516 22.4183 13.6377 22.4322 13.5962 22.4598C13.5547 22.4322 13.5409 22.4183 13.4994 22.3768L2.64307 11.5174C1.41222 10.2862 0.803711 8.68151 0.803711 7.06297C0.803711 5.44444 1.41222 3.82591 2.64307 2.59472C5.10477 0.146162 9.08773 0.146162 11.5494 2.59472L13.5824 4.64209L15.6292 2.59472C18.0909 0.146162 22.06 0.146162 24.5217 2.59472C25.7802 3.82591 26.3888 5.43061 26.3888 7.06297Z"
+                fill="#E27A6C"
+                stroke="#E27A6C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="container" id="cont3-4">
+          <div class="inner-box1">
+            <div class="inner-textbox">
+              <div class="category">
+                <span class="category-label">생필품 | 이화 파빌리온 앞 | </span>
+                <span class="store">쿠팡</span>
+              </div>
+              <div class="product-name">해피데이 포켓형 대용량 핫팩 150g</div>
+              <div class="price">25개, 25000원</div>
+            </div>
+            <div class="progress">
+              <div class="progress-text">
+                <div class="dday">D-DAY</div>
+                <div class="discount">90%</div>
+                <br />
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="inner-box2">
+            <svg
+              class="heart"
+              width="28"
+              height="24"
+              viewBox="0 0 28 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M26.3888 7.06297C26.3888 8.66768 25.7802 10.2862 24.5494 11.5174L22.5026 13.5648L13.693 22.3768C13.6516 22.4183 13.6377 22.4322 13.5962 22.4598C13.5547 22.4322 13.5409 22.4183 13.4994 22.3768L2.64307 11.5174C1.41222 10.2862 0.803711 8.68151 0.803711 7.06297C0.803711 5.44444 1.41222 3.82591 2.64307 2.59472C5.10477 0.146162 9.08773 0.146162 11.5494 2.59472L13.5824 4.64209L15.6292 2.59472C18.0909 0.146162 22.06 0.146162 24.5217 2.59472C25.7802 3.82591 26.3888 5.43061 26.3888 7.06297Z"
+                fill="#E27A6C"
+                stroke="#E27A6C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="container" id="cont3-5">
+          <div class="inner-box1">
+            <div class="inner-textbox">
+              <div class="category">
+                <span class="category-label">생필품 | 이화 파빌리온 앞 | </span>
+                <span class="store">쿠팡</span>
+              </div>
+              <div class="product-name">해피데이 포켓형 대용량 핫팩 150g</div>
+              <div class="price">25개, 25000원</div>
+            </div>
+            <div class="progress">
+              <div class="progress-text">
+                <div class="dday">D-DAY</div>
+                <div class="discount">90%</div>
+                <br />
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="inner-box2">
+            <svg
+              class="heart"
+              width="28"
+              height="24"
+              viewBox="0 0 28 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M26.3888 7.06297C26.3888 8.66768 25.7802 10.2862 24.5494 11.5174L22.5026 13.5648L13.693 22.3768C13.6516 22.4183 13.6377 22.4322 13.5962 22.4598C13.5547 22.4322 13.5409 22.4183 13.4994 22.3768L2.64307 11.5174C1.41222 10.2862 0.803711 8.68151 0.803711 7.06297C0.803711 5.44444 1.41222 3.82591 2.64307 2.59472C5.10477 0.146162 9.08773 0.146162 11.5494 2.59472L13.5824 4.64209L15.6292 2.59472C18.0909 0.146162 22.06 0.146162 24.5217 2.59472C25.7802 3.82591 26.3888 5.43061 26.3888 7.06297Z"
+                fill="#E27A6C"
+                stroke="#E27A6C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-box">
+      <div class="text-box4">
+        <div class="text4-1">생생한 후기를 구경해보세요</div>
+      </div>
+      <div class="review-page-go">리뷰 전체 보기</div>
+
+      <div class="card-line4">
+        <div class="card-container4">
+          <div class="UIcard">
+            <div class="card bottom">
+              <div class="card textbox">
+                <div class="text">
+                  <div class="nickname box">
+                    <span class="nickname img"></span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                    >
+                      <circle cx="8" cy="8" r="8" fill="#00664F" />
+                    </svg>
+                    <span id="name">냥냥이</span>
+                  </div>
+                  <div class="review contents">
+                    요즘 날씨가 추워져서 걱정이 많았는데 벗들과 함께 핫팩
+                    공구해서 걱정이 싹 사라졌네요! ㅋㅋ 다들 감기 조심하세요
+                  </div>
+                </div>
+              </div>
+              <div class="line"></div>
+              <div class="product name">해피데이 포켓형 대용량 핫팩 150g</div>
+            </div>
+            <div class="card top"></div>
+          </div>
+
+          <div class="UIcard">
+            <div class="card bottom">
+              <div class="card textbox">
+                <div class="text">
+                  <div class="nickname box">
+                    <span class="nickname img"></span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                    >
+                      <circle cx="8" cy="8" r="8" fill="#00664F" />
+                    </svg>
+                    <span id="name">냥냥이</span>
+                  </div>
+                  <div class="review contents">
+                    요즘 날씨가 추워져서 걱정이 많았는데 벗들과 함께 핫팩
+                    공구해서 걱정이 싹 사라졌네요! ㅋㅋ 다들 감기 조심하세요
+                  </div>
+                </div>
+              </div>
+              <div class="line"></div>
+              <div class="product name">해피데이 포켓형 대용량 핫팩 150g</div>
+            </div>
+            <div class="card top"></div>
+          </div>
+
+          <div class="UIcard">
+            <div class="card bottom">
+              <div class="card textbox">
+                <div class="text">
+                  <div class="nickname box">
+                    <span class="nickname img"></span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                    >
+                      <circle cx="8" cy="8" r="8" fill="#00664F" />
+                    </svg>
+                    <span id="name">냥냥이</span>
+                  </div>
+                  <div class="review contents">
+                    요즘 날씨가 추워져서 걱정이 많았는데 벗들과 함께 핫팩
+                    공구해서 걱정이 싹 사라졌네요! ㅋㅋ 다들 감기 조심하세요
+                  </div>
+                </div>
+              </div>
+              <div class="line"></div>
+              <div class="product name">해피데이 포켓형 대용량 핫팩 150g</div>
+            </div>
+            <div class="card top"></div>
+          </div>
+
+          <div class="UIcard">
+            <div class="card bottom">
+              <div class="card textbox">
+                <div class="text">
+                  <div class="nickname box">
+                    <span class="nickname img"></span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                    >
+                      <circle cx="8" cy="8" r="8" fill="#00664F" />
+                    </svg>
+                    <span id="name">냥냥이</span>
+                  </div>
+                  <div class="review contents">
+                    요즘 날씨가 추워져서 걱정이 많았는데 벗들과 함께 핫팩
+                    공구해서 걱정이 싹 사라졌네요! ㅋㅋ 다들 감기 조심하세요
+                  </div>
+                </div>
+              </div>
+              <div class="line"></div>
+              <div class="product name">해피데이 포켓형 대용량 핫팩 150g</div>
+            </div>
+            <div class="card top"></div>
+          </div>
+
+          <div class="UIcard">
+            <div class="card bottom">
+              <div class="card textbox">
+                <div class="text">
+                  <div class="nickname box">
+                    <span class="nickname img"></span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                    >
+                      <circle cx="8" cy="8" r="8" fill="#00664F" />
+                    </svg>
+                    <span id="name">냥냥이</span>
+                  </div>
+                  <div class="review contents">
+                    요즘 날씨가 추워져서 걱정이 많았는데 벗들과 함께 핫팩
+                    공구해서 걱정이 싹 사라졌네요! ㅋㅋ 다들 감기 조심하세요
+                  </div>
+                </div>
+              </div>
+              <div class="line"></div>
+              <div class="product name">해피데이 포켓형 대용량 핫팩 150g</div>
+            </div>
+            <div class="card top"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pagebox">
+      <div class="page">
+        <div class="page-now">
+          <div class="number-now">1</div>
+        </div>
+        <div class="page-text">2</div>
+        <div class="page-text">3</div>
+        <div class="page-text">4</div>
+        <div class="page-text">5</div>
+        <div class="page-text">6</div>
+        <div class="page-text">7</div>
+      </div>
+    </div>
+
+    <div class="footer"></div>
+    <!--푸터 삽입-->
+  </body>
+  <script>
+    fetch("layout/header_before.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
+</html>
