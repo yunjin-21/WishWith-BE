@@ -121,6 +121,32 @@ def register_user():
         flash("user id already exist!")
         return render_template("signup1.html")
 
+#이거 추가
+@app.route("/reg_review_init/<name>/")
+def reg_review_init(name):
+    return render_template("review_add.html", name=name)
+
+@app.route("/reg_review", methods=['POST'])
+def reg_review():
+    print(request.files)
+    image_file = request.files.get("img_path")
+    image_file.save("static/img/{}".format(image_file.filename))
+    
+    # 'reviewStar' 키가 없을 경우 기본값으로 '0' 사용
+    rate = request.form.get('reviewStar', '0')
+
+    data = {
+        'name': request.form['name'],
+        'title': request.form['title'],
+        'rate': rate,
+        'review': request.form['reviewContents'],
+        "img_path": "static/img/" + image_file.filename
+    }
+    DB.reg_review(data, image_file.filename)
+    return redirect(url_for('login'))
+
+
+
 
 
 
