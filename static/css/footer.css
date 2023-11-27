@@ -1,0 +1,22 @@
+.footer-container {
+  width: 100%;
+  height: 340px;
+  display: flex;
+  align-items: top;
+  justify-content: left;
+  position: absolute;
+  bottom: 0;
+  border-top: solid 1px black;
+  padding-top: 50px;
+  padding-left: 5%;
+  color: black; /* Or any other text color */
+  font-size: 14px; /* Adjust as necessary */
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: row;
+  gap: 10px; /* Adjust the space between items */
+}
+
+/* Add additional styling for the text as needed */
