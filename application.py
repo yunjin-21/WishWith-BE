@@ -145,6 +145,21 @@ def reg_review():
     DB.reg_review(data, image_file.filename)
     return redirect(url_for('login'))
 
+@app.route('/show_heart/<name>/', methods=['GET'])
+def show_heart(name):
+    my_heart = DB.get_heart_byname(session['id'], name)
+    return jsonify({'my_heart': my_heart})
+
+@app.route('/like/<name>/', methods=['POST'])
+def like(name):
+    my_heart = DB.update_heart(session['id'],'Y',name)
+    return jsonify({'msg': '위시 상품에 등록되었습니다!'})
+
+@app.route('/unlike/<name>/', methods=['POST'])
+def unlike(name):
+    my_heart = DB.update_heart(session['id'],'N',name)
+    return jsonify({'msg': '위시 상품에서 제외되었습니다.'})
+
 @app.route("/login_confirm", methods=['POST'])
 def login_user():
     id_=request.form['id']
