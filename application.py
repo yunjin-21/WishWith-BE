@@ -145,8 +145,22 @@ def reg_review():
     DB.reg_review(data, image_file.filename)
     return redirect(url_for('login'))
 
+@app.route("/login_confirm", methods=['POST'])
+def login_user():
+    id_=request.form['id']
+    pw=request.form['password']
+    pw_hash = hashlib.sha256(pw.encode('utf-8')).hexdigest()
+    if DB.find_user(id_,pw_hash):
+        session['id']=id_
+        return redirect(url_for('index'))
+    else:
+        flash("존재하지 않는 정보입니다! 다시 로그인을 시도해주세요.")
+        return redirect(url_for('login'))
 
-
+@app.route("/logout")
+def logout_user():
+    session.clear()
+    return redirect(url_for('index'))
 
 
 
