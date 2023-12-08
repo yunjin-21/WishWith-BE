@@ -104,10 +104,8 @@ def my_participate():
 
 @app.route("/mygongGu", methods=["GET"])
 def my_gonggu():
-    user_id = session.get('id')  # 현재 접속한 사용자의 ID를 가져옵니다.
-    all_items = DB.get_items()  # 모든 상품을 가져옵니다.
-
-    # 사용자의 ID로 시작하는 키를 가진 상품만 필터링합니다.
+    user_id = session.get('id')  
+    all_items = DB.get_items()  
     user_items = {key: value for key, value in all_items.items() if key.startswith(f"{user_id} ")}
 
 
