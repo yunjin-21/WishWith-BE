@@ -10,7 +10,8 @@ DB = DBhandler()
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return redirect(url_for('view_list'))
+
 
 
 @app.route('/mypage')
@@ -19,11 +20,6 @@ def mypage():
 @app.route('/login')
 def login():
     return render_template('login.html')
-
-
-
-
-
 @app.route("/product-add") 
 def productAdd():
     return render_template('product_add.html')
@@ -38,6 +34,8 @@ def headerAfter():
 def footerEnter():
     return render_template('layout/footer.html')
 
+
+
 @app.route("/add-product", methods=["POST"])
 def add_product():
     image_file = request.files["img_path"]
@@ -51,7 +49,12 @@ def add_product():
         "end_date": request.form.get("end-date"),
         "img_path": "static/img/" + image_file.filename
     }
-    DB.insert_item(data['product_description'], data, image_file.filename)
+    user_id = session.get('id')
+    product_description = f"{user_id} 상품 설명 : {data['product_description']}"
+    data["product_description"] = product_description
+
+    DB.insert_item(product_description, data, image_file.filename)
+
     return redirect(url_for('view_list'))
 
 @app.route("/view-list", methods=["GET"])
@@ -70,6 +73,62 @@ def view_list():
     return render_template("product_list.html", row_data=row_data, limit=per_page, page=page, page_count=int((item_counts / per_page) + 1), total=item_counts)
 
 
+
+
+
+@app.route("/view_detail/<name>/")
+def view_item_detail(name):
+        data = DB.get_item_byname(str(name))
+        #return render_template("detail.html", name=name, data=data)
+        #product_id = f"{data['user_id']}_{name}"
+        return render_template("product_detail.html", name=name, data=data)
+        #return render_template("product_detail.html", name=name, data=data, product_id=product_id)
+    
+
+    
+@app.route("/product-detail")
+def productDetail():
+    return render_template('product_detail.html')
+
+@app.route("/myparticipation", methods=["GET"])  
+def my_participate(): 
+    product_description = request.args.get('product_description')
+    product_number = request.args.get('product_number')
+    data = {
+        'product_description': product_description,
+        'product_number': product_number
+    }
+    return render_template("myparticipation.html", data=data)  
+
+
+
+@app.route("/mygongGu", methods=["GET"])
+def my_gonggu():
+    user_id = session.get('id')  # 현재 접속한 사용자의 ID를 가져옵니다.
+    all_items = DB.get_items()  # 모든 상품을 가져옵니다.
+
+    # 사용자의 ID로 시작하는 키를 가진 상품만 필터링합니다.
+    user_items = {key: value for key, value in all_items.items() if key.startswith(f"{user_id} ")}
+
+
+    per_page = 6
+    per_row = 3
+    page = request.args.get("page", 0, type=int)
+    start_idx = per_page * page
+    end_idx = per_page * (page + 1)
+
+    item_counts = len(user_items)
+    user_items = dict(list(user_items.items())[start_idx:end_idx])
+    row_data = [list(user_items.items())[i * per_row:(i + 1) * per_row] for i in range((end_idx - start_idx) // per_row)]
+
+    print(user_items)
+    print(all_items)
+    return render_template("product_list.html", row_data=row_data, limit=per_page, page=page, page_count=int((item_counts / per_page) + 1), total=item_counts)
+
+
+
+
+
 @app.route("/parti-product") 
 def partiProduct():
     return render_template("parti_product.html")
@@ -77,18 +136,6 @@ def partiProduct():
 @app.route("/written-review")
 def writtenReview():
     return render_template("written_review.html")
-
-
-@app.route("/view_detail/<name>/")
-def view_item_detail(name):
-        data = DB.get_item_byname(str(name))
-        return render_template("detail.html", name=name, data=data)
-
-
-@app.route("/product-detail")
-def productDetail():
-    return render_template('product_detail.html')
-
 
 @app.route("/my-review")
 def myReview():

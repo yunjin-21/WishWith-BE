@@ -9,6 +9,7 @@ class DBhandler:
             self.db = firebase.database()
             self.storage = firebase.storage()
 
+
     def insert_item(self, name, data, img_path):
         item_info = {
             "product_description": data['product_description'],
@@ -22,6 +23,9 @@ class DBhandler:
         self.db.child("item").child(name).set(item_info)
         print(data, img_path)
         return True
+
+
+
     
     def get_items(self ):
         items = self.db.child("item").get().val()

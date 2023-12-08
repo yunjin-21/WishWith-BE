@@ -14,8 +14,8 @@
       <div class="navigation">
         <span class="back-arrow">&larr;</span>
         <div class="action-buttons">
-            <button class="secondary-btn" onclick="saveTemp()">임시저장</button>
-            <button class="primary-btn" id="joinBtn">공구참여</button>
+            <button class="secondary-btn" onclick="saveTemp()">마이공구</button>
+            <button class="primary-btn" id="joinBtn">공구 등록</button>
           </div>
           
       </div>
@@ -165,17 +165,20 @@
 
   </form> <!-- 이거 추가 -->
 
-  <script>
-    function saveTemp() {
-      alert('임시저장 기능을 수행합니다.');
-      event.preventDefault();
+
+<script>
+  function saveTemp() {
+    var confirmation = window.confirm('마이공구로 이동하시겠습니까?');
+    if (confirmation) {
+      window.location.href = '/mygongGu';
     }
+    event.preventDefault();
+  }
 
-    document.getElementById('joinBtn').addEventListener('click', function () {
-      document.getElementById('productForm').submit();
-    });
-  </script>
-
+  document.getElementById('joinBtn').addEventListener('click', function () {
+    document.getElementById('productForm').submit();
+  });
+</script>
   </body>
   
 </html>
