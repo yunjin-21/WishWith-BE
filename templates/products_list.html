@@ -63,7 +63,11 @@
             <div class="inner-textbox">
               <div class="category">
                 <span class="category-label"
-                  >{{data.product_category}} | {{data.product_place}} |
+                  >{{data.product_category}} | {{data.product_place}} |   
+                  <img src="{{ url_for('static', filename=data['img_path'][7:]) }}" alt="Product Image">
+
+
+
                 </span>
                 <span class="store">쿠팡</span>
               </div>
