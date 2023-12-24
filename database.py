@@ -22,6 +22,26 @@ class DBhandler:
         print(data, img_path)
         return True
     
+    def insert_user(self, data, password1):
+        user_info = {
+            "name": data['name'],
+            "email": data['email'],
+            "phone": data['phone'],
+            "id": data['id'],
+            "password": password1,
+        }
+        if self.user_duplicate_check(str(data['email'])) and password1!=data['password2']:
+            self.db.child("user").push(user_info)
+            print(data)
+            return True
+        else:
+            return False
+
+    def user_duplicate_check(self, email_string):
+        users = self.db.child("user").get()
+        print("users###",users.val())
+        if str(users.val()) == "None":
+          
     def get_items(self ):
         items = self.db.child("item").get().val()
         return items
@@ -60,6 +80,19 @@ class DBhandler:
         else:
             for res in users.each():
                 value = res.val()
+
+                if value['email'] == email_string:
+                    return False
+                return True
+            
+    def insert_user2(self, data):
+        user_info = {
+            "nickname": data['nickname'],
+            "profile-img": data['profile-img']
+        }
+        self.db.child("user").push(user_info)
+        return True
+
                 if value['id'] == id_string:
                     return False
             return True

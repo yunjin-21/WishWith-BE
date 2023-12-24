@@ -20,16 +20,12 @@ def mypage():
 def login():
     return render_template('login.html')
 
-
-
-
-
-@app.route("/product-add") 
+@app.route('/product-add') 
 def productAdd():
     return render_template('product_add.html')
 
 
-@app.route("/add-product-post", methods=["POST"])
+@app.route('/add-product-post', methods=["POST"])
 def registerproduct():
     print(request.form)  # 확인용 출력
     print(request.files)  # 확인용 출력
@@ -62,11 +58,35 @@ def view_list():
     tot_count = len(data)
     
     row_data = [list(data.items())[i * per_row:(i + 1) * per_row] for i in range(per_page // per_row)]
+    
+@app.route('/signup1')
+def signup1():
+    return render_template('signup1.html')
 
-    return render_template("list.html", row_data=row_data, limit=per_page,page=page, page_count=int((item_counts/per_page)+1),total=item_counts)
+@app.route('/signup1_post', methods=["POST"])
+def register_user_1():
+    data = request.form
+    password1 = request.form['password1']
+    pw_hash = hashlib.sha256(password1.encode('utf-8')).hexdigest()
+    if DB.insert_user(data,pw_hash):
+        return render_template("signup2.html")
+    else:
+        return render_template("signup1.html")
 
+@app.route('/signup2')
+def signup2():
+    return render_template('signup2.html')
 
+@app.route('/signup2_post', methods=["POST"])
+def register_user_2():
+    data = {
+        "nickname": request.form.get("nickname"),
+        "profile-img": request.form.get("profile-img")
+    }
+    if DB.insert_user2(data):
+        return render_template("signup3.html")
 
+   
 @app.route("/view_detail/<name>/")
 def view_item_detail(name):
         data = DB.get_item_byname(str(name))
@@ -96,6 +116,7 @@ def reviewDetail():
 @app.route("/reviews-list")
 def reviewList():
     return render_template('reviews_list.html')
+
 
 @app.route("/signup1")
 def signup1():
@@ -171,12 +192,11 @@ def login_user():
     else:
         flash("존재하지 않는 정보입니다! 다시 로그인을 시도해주세요.")
         return redirect(url_for('login'))
-
+      
 @app.route("/logout")
 def logout_user():
     session.clear()
     return redirect(url_for('index'))
-
 
 
 if __name__ == '__main__':
